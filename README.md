@@ -60,13 +60,13 @@ Create a `.env` file in the root of your project and populate it with the follow
 
 ```env
 PORT=5000
-DB_USER=postgres
-DB_PASSWORD=Ranjeet@01
+DB_USER=YOUR_DB_USER
+DB_PASSWORD=YOUR_DB_PASSWORD
 DB_HOST=localhost
 DB_NAME=railway_management
 DB_PORT=5432
-JWT_SECRET=my_secret
-ADMIN_API_KEY=power@admin
+JWT_SECRET=YOUR_SECRET
+ADMIN_API_KEY=YOUR_ADMIN_API_KEY
 ```
 
 ---
@@ -99,7 +99,7 @@ By default, the server will run on `http://localhost:5000`.
 
 1. **Register a New User**
 
-- **Endpoint**: `POST /auth/register`  
+- **Endpoint**: `POST /api/auth/register`  
 - **Request Body**:
 
 ```json
@@ -123,7 +123,7 @@ By default, the server will run on `http://localhost:5000`.
 
 2. **Login**
 
-- **Endpoint**: `POST /auth/login`  
+- **Endpoint**: `POST /api/auth/login`  
 - **Request Body**:
 
 ```json
@@ -148,7 +148,7 @@ By default, the server will run on `http://localhost:5000`.
 
 3. **Add a New Train**  
 
-- **Endpoint**: `POST /admin/trains`  
+- **Endpoint**: `POST /api/admin/addTrain`  
 - **Request Body**:
 
 ```json
@@ -158,6 +158,10 @@ By default, the server will run on `http://localhost:5000`.
     "destination": "Station B",
     "total_seats": 200
 }
+```
+- **Headers**:
+```
+    admin-api-key: YOUR_ADMIN_API_KEY
 ```
 
 - **Response**:
@@ -171,13 +175,19 @@ By default, the server will run on `http://localhost:5000`.
 
 4. **Update Train Seats**  
 
-- **Endpoint**: `PUT /admin/trains/:train_id`  
+- **Endpoint**: `PUT /api/admin/updateTrain/:train_id`  
 - **Request Body**:
 
 ```json
 {
     "total_seats": 300
 }
+
+```
+
+- **Headers**:
+```
+    admin-api-key: YOUR_ADMIN_API_KEY
 ```
 
 - **Response**:
@@ -194,7 +204,7 @@ By default, the server will run on `http://localhost:5000`.
 
 5. **Get Train Availability**
 
-- **Endpoint**: `GET /user/trains`  
+- **Endpoint**: `GET /api/user/trains`  
 - **Query Parameters**:
 
 ```
@@ -216,7 +226,7 @@ By default, the server will run on `http://localhost:5000`.
 
 6. **Book a Seat**
 
-- **Endpoint**: `POST /user/book`  
+- **Endpoint**: `POST /api/user/book`  
 - **Request Body**:
 
 ```json
@@ -236,7 +246,7 @@ By default, the server will run on `http://localhost:5000`.
 
 7. **Get Booking Details**
 
-- **Endpoint**: `GET /user/booking-details`  
+- **Endpoint**: `GET /api/user/bookings/:id`  
 - **Response**:
 
 ```json
@@ -304,4 +314,5 @@ By default, the server will run on `http://localhost:5000`.
 - PostgreSQL documentation
 - Node.js and Express Official Documentation
 - [Postman](https://www.getpostman.com) for API Testing
+- [StackOverFlow](stackoverflow.com)
 
